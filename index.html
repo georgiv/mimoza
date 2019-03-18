@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Mimoza</title>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css'>
+  </head>
+  <body>
+    <div class='ui container'>
+      <h1 class='ui pink header'>MIMOZA TEST</h1>
+      <div class='ui input'>
+        <input type='text' placeholder='username' id='userq'>
+      </div>
+      <div class='ui hidden divider'></div>
+      <div class='ui pink button' id='get'>GET</div>
+    </div>
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
+    <script>
+      $(window).on('load', function() {
+        $('#userq').val('');
+      });
+      $.fn.api.settings.api = {
+        'get-user' : 'http://localhost:4000/users/{user}'
+      }
+      $('.button')
+        .api({
+          action: 'get-user',
+          method: 'GET',
+          beforeSend: function(settings) {
+            settings.urlData = {
+              user: $('#userq').val()
+            };
+            return settings;
+          },
+          onSuccess: function(response) {
+            $('#get').after('<div id="name"> name: ' + response.name + '</div>')
+            $('#name').after('<div id="email"> email: ' + response.email + '</div>')
+            $('#email').after('<div id="last_login"> last login: ' + new Date(response.last_login).toLocaleString('en-IE') + '</div>')
+            $('#last_login').after('<div id="created"> created: ' + new Date(response.created).toLocaleString('en-IE') + '</div>')
+            $('#created').after('<div id="password"> password: ' + response.password + '</div>')
+            $('#password').after('<div class="ui small image"><img src=data:image/png;base64,' + response.avatar + '></div>')
+          },
+          onFailure: function(response) {
+            alert(response)
+          }
+        });
+    </script>
+  </body>
+</html>
