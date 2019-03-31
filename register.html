@@ -12,7 +12,7 @@
       </div>
       <div class='ui hidden divider'></div>
       <div id='inputs'>
-        <div class='ui center aligned medium pink header'>Create an Account</div>
+        <div class='ui center aligned medium pink header' id='inner-title'><i>Create an Account</i></div>
         <div class='ui hidden divider'></div>
         <div id='user-holder'>
           <div class='ui transparent input' id='user-holder-inner'>
@@ -41,6 +41,13 @@
           </div>
           <i class='key icon'></i>
         </div>
+		<div class='ui hidden divider'></div>
+		<div class='ui checkbox' id='gdpr'>
+		  <input type='checkbox'>
+		  <label>By creating an account you agree to our Terms of Sercice and Privacy Policy</label>
+		</div>
+		<div class='ui hidden divider'></div>
+		<div class='ui pink button' id='register'><i>REGISTER</i></div>
       </div>
     </div>
     <style>
@@ -55,7 +62,12 @@
       #title-holder div {
         padding: 3%
       }
+	  #inner-title {
+	    font-family: Segoe UI;
+		font-size: 20px
+	  }
       #user-holder {
+	    font-family: Segoe UI;
         display: table;
         margin: 0 auto
       }
@@ -63,6 +75,7 @@
         border-bottom: 1px solid gainsboro
       }
       #email-holder {
+	    font-family: Segoe UI;
         display: table;
         margin: 0 auto
       }
@@ -70,6 +83,7 @@
         border-bottom: 1px solid gainsboro
       }
       #pass-holder {
+	    font-family: Segoe UI;
         display: table;
         margin: 0 auto
       }
@@ -77,12 +91,33 @@
         border-bottom: 1px solid gainsboro
       }
       #retype-pass-holder {
+	    font-family: Segoe UI;
         display: table;
         margin: 0 auto
       }
       #retype-pass-holder-inner {
         border-bottom: 1px solid gainsboro
       }
+	  #gdpr {
+	    width: 40%;
+	    display: table;
+		margin: 0 auto
+	  }
+	  #gdpr label {
+	    color: pink;
+		font-family: Segoe UI;
+		font-size: 10px;
+		text-align: center
+	  }
+	  #register {
+	    width: 60%;
+		padding: 15px;
+	    display: table;
+		margin: 0 auto;
+		font-family: Segoe UI;
+		font-size: 10px;
+		border-radius: 12px
+	  }
     </style>
     <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
