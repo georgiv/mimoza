@@ -18,6 +18,7 @@
             <span id='helper'></span>
             <img src='hanger.png' id='hanger'>
           </div>
+          <img src='hanger.png' id='hanger2'>
           <div class='ui hidden divider'></div>
           <div id='user-holder'>
             <div class='ui transparent input' id='user-holder-inner'>
@@ -78,8 +79,11 @@
         height: 80px;
         border-radius: 50%;
         border: solid 1px #FF457C;
-        box-shadow: 1px 1px 1px 1px #FF457C;
-        transform: rotate(345deg)
+        -moz-box-shadow:    2px 2px 2px 2px #CBBCC3;
+        -webkit-box-shadow: 2px 2px 2px 2px #CBBCC3;
+        box-shadow: 2px 2px 2px 2px #CBBCC3;
+        transform: rotate(345deg);
+        opacity: 0.2
       }
       #helper {
         display: inline-block;
@@ -90,7 +94,14 @@
       #hanger {
         vertical-align: middle;
         width: 80%;
-        opacity: 10
+        opacity: 0
+      }
+      #hanger2 {
+        position: absolute;
+        width: 64px;
+        transform: rotate(345deg);
+        top: 188px;
+        left: 651px
       }
       #user-holder {
         text-align: center
