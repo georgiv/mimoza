@@ -2,104 +2,139 @@
 <html lang='en' dir='ltr'>
   <head>
     <meta charset='utf-8'>
-    <title>Login to Mimoza!</title>
+    <title>Login in Mimoza</title>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css'>
   </head>
   <body>
-    <div class='ui container'>
-      <h1 class='ui pink header'>Sign up</h1>
-      <div class='field'>
-        <div class='ui label' id='label-user'>
-          username
-        </div>
-        <div class='ui left icon input'>
-          <input type='text' id='user'>
-          <i class='user icon'></i>
-        </div>
+    <div id='main'>
+      <div id='title-holder'>
+        <img src='mimoza_logo.png' id='logo'>
       </div>
-      <div class='ui hidden divider'></div>
-      <div class='field'>
-        <div class='ui label' id='label-email'>
-          email
+      <div>
+        <img src='background.jpg' id='left-background'>
+        <div id='inputs'>
+          <div class='ui hidden divider'></div>
+          <div id='hanger-holder'>
+            <span id='helper'></span>
+            <img src='hanger.png' id='hanger'>
+          </div>
+          <div class='ui hidden divider'></div>
+          <div id='user-holder'>
+            <div class='ui transparent input' id='user-holder-inner'>
+              <input type='text' placeholder='Username' id='user'>
+            </div>
+            <i class='user icon'></i>
+          </div>
+          <div class='ui hidden divider'></div>
+          <div id='pass-holder'>
+            <div class='ui transparent input' id='pass-holder-inner'>
+              <input type='password' placeholder='Password' id='pass'>
+            </div>
+            <i class='key icon'></i>
+          </div>
+          <div class='ui hidden divider'></div>
+          <div id='forgot-pass'>
+            <a href='https://google.com'>Forgot password?</a>
+          </div>
+          <div class='ui hidden divider'></div>
+          <div class='ui pink button' id='login'><i>LOGIN</i></div>
         </div>
-        <div class='ui left icon input'>
-          <input type='email' id='email'>
-          <i class='envelope icon'></i>
-        </div>
+        <img src='background.jpg' id='right-background'>
       </div>
-      <div class='ui hidden divider'></div>
-      <div class='field'>
-        <div class='ui label' id='label-pass'>
-          password
-        </div>
-        <div class='ui left icon input'>
-          <input type='password' id='pass'>
-          <i class='lock icon'></i>
-        </div>
-      </div>
-      <div class='ui hidden divider'></div>
-      <div class='field'>
-        <div class='ui label' id='label-avatar'>
-          avatar
-        </div>
-        <div class='ui left icon input'>
-          <input type='file' id='avatar'>
-          <i class='upload icon'></i>
-        </div>
-      </div>
-      <div class='ui hidden divider'></div>
-      <div class='ui pink button' id='reg'>Register</div>
     </div>
+    <style>
+      * {
+        font-family: Segoe UI
+      }
+      #main {
+        margin: 0 auto
+      }
+      #title-holder {
+        padding: 3% 40%;
+        background-color: black
+      }
+      #logo {
+        width: 100%;
+        margin: 0 auto
+      }
+      #left-background {
+        float: left;
+        width: 30%;
+        height: 500px
+      }
+      #inputs {
+        float: left;
+        width: 40%
+      }
+      #right-background {
+        float: left;
+        width: 30%;
+        height: 500px
+      }
+      #hanger-holder {
+        margin: 0 auto;
+        text-align: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: solid 1px #FF457C;
+        box-shadow: 1px 1px 2px 2px #FF457C;
+      }
+      #helper {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+      #hanger {
+        vertical-align: middle;
+        width: 80%
+      }
+      #user-holder {
+        text-align: center
+      }
+      #user-holder-inner {
+        display: inline-block;
+        width: 40%;
+        border-bottom: 1px solid gainsboro
+      }
+      #user {
+        width: 100%
+      }
+      #pass-holder {
+        text-align: center
+      }
+      #pass-holder-inner {
+        display: inline-block;
+        width: 40%;
+        border-bottom: 1px solid gainsboro
+      }
+      #pass {
+        width: 100%
+      }
+      #forgot-pass {
+        margin: 0 auto;
+        width: 40%;
+        text-align: right
+      }
+      #forgot-pass a {
+        color: pink;
+        font-size: 10px
+      }
+      #login {
+        width: 40%;
+        padding: 12px;
+        display: table;
+        margin: 0 auto;
+        font-size: 10px;
+        border-radius: 12px
+      }
+    </style>
     <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
     <script>
       $(window).on('load', function() {
-        $('#user').val('');
-        $('#email').val('')
-        $('#pass').val('');
-        $('#avatar').val('');
+        $('#user').val('')
       });
-
-      let labelWidth = Math.max($('#label-user').width(), $('#label-email').width(), $('#label-user').width());
-      $('.label').width(labelWidth).css('text-align', 'right').css('background', 'none');
-
-      $.fn.api.settings.api = {
-        'register-user' : 'http://localhost:4000/users'
-      }
-
-      var bs = ''
-      $('#avatar').change(function(e) {
-        let f = this.files[0];
-        let reader = new FileReader();
-        reader.onload = function(e) {
-          bs = e.target.result.split(',')[1];
-          //console.log(e.target.result.split(',')[1]);
-        };
-        reader.readAsDataURL(f);
-      });
-
-      $('.button')
-        .api({
-          action: 'register-user',
-          method: 'POST',
-          dataType: 'text',
-          beforeXHR: function(xhr) {
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            return xhr;
-          },
-          beforeSend: function(settings) {
-            let data = {
-              name: $('#user').val(),
-              avatar: bs,
-              email: $('#email').val(),
-              last_login: Date.now(),
-              created: Date.now(),
-              password: $('#pass').val()
-            };
-            settings.data = JSON.stringify(data);
-            return settings;
-          }
-        });
     </script>
   </body>
 </html>
