@@ -6,135 +6,105 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css'>
   </head>
   <body>
-    <div id='main'>
-      <div id='title-holder'>
-        <img src='mimoza_logo.png' id='logo'>
+    <div>
+      <div>
+        <img src='mimoza.png'>
       </div>
       <div>
-        <img src='background.jpg' id='left-background'>
-        <div id='inputs'>
+        <img src='background.jpg'>
+        <div>
           <div class='ui hidden divider'></div>
-          <div id='hanger-holder'>
-            <span id='helper'></span>
-            <img src='hanger.png' id='hanger'>
-          </div>
-          <img src='hanger.png' id='hanger2'>
+          <img src='hanger.png'>
           <div class='ui hidden divider'></div>
-          <div id='user-holder'>
-            <div class='ui transparent input' id='user-holder-inner'>
+          <div>
+            <div class='ui transparent input'>
               <input type='text' placeholder='Username' id='user'>
             </div>
             <i class='user icon'></i>
           </div>
           <div class='ui hidden divider'></div>
-          <div id='pass-holder'>
-            <div class='ui transparent input' id='pass-holder-inner'>
-              <input type='password' placeholder='Password' id='pass'>
+          <div>
+            <div class='ui transparent input'>
+              <input type='password' placeholder='Password'>
             </div>
             <i class='key icon'></i>
           </div>
           <div class='ui hidden divider'></div>
-          <div id='forgot-pass'>
+          <div>
             <a href='https://google.com'>Forgot password?</a>
           </div>
           <div class='ui hidden divider'></div>
-          <div class='ui pink button' id='login'><i>LOGIN</i></div>
+          <div class='ui pink button'><i>LOGIN</i></div>
         </div>
-        <img src='background.jpg' id='right-background'>
+        <img src='background.jpg'>
       </div>
     </div>
     <style>
       * {
         font-family: Segoe UI
       }
-      #main {
+      body > div:nth-of-type(1){
         margin: 0 auto
       }
-      #title-holder {
+      body > div:nth-of-type(1) > div:nth-of-type(1) {
         padding: 3% 40%;
         background-color: black
       }
-      #logo {
+      body > div:nth-of-type(1) > div:nth-of-type(1) > img:only-child {
         width: 100%;
         margin: 0 auto
       }
-      #left-background {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > img {
         float: left;
-        width: 30%;
-        height: 500px
+        width: 30%
       }
-      #inputs {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div {
         float: left;
         width: 40%
       }
-      #right-background {
-        float: left;
-        width: 30%;
-        height: 500px
-      }
-      #hanger-holder {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > img {
+        display: block;
         margin: 0 auto;
-        text-align: center;
-        width: 80px;
-        height: 80px;
+        width: 15%;
         border-radius: 50%;
         border: solid 1px #FF457C;
         -moz-box-shadow:    2px 2px 2px 2px #CBBCC3;
         -webkit-box-shadow: 2px 2px 2px 2px #CBBCC3;
         box-shadow: 2px 2px 2px 2px #CBBCC3;
-        transform: rotate(345deg);
-        opacity: 0.2
+        transform: rotate(345deg)
       }
-      #helper {
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-
-      }
-      #hanger {
-        vertical-align: middle;
-        width: 80%;
-        opacity: 0
-      }
-      #hanger2 {
-        position: absolute;
-        width: 64px;
-        transform: rotate(345deg);
-        top: 188px;
-        left: 651px
-      }
-      #user-holder {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) {
         text-align: center
       }
-      #user-holder-inner {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div {
         display: inline-block;
         width: 40%;
         border-bottom: 1px solid gainsboro
       }
-      #user {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div > input {
         width: 100%
       }
-      #pass-holder {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) {
         text-align: center
       }
-      #pass-holder-inner {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div {
         display: inline-block;
         width: 40%;
         border-bottom: 1px solid gainsboro
       }
-      #pass {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div > input {
         width: 100%
       }
-      #forgot-pass {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(7) {
         margin: 0 auto;
         width: 40%;
         text-align: right
       }
-      #forgot-pass a {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(7) > a {
         color: pink;
         font-size: 10px
       }
-      #login {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(9) {
         width: 40%;
         padding: 12px;
         display: table;
