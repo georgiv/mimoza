@@ -150,8 +150,9 @@
       $(window).on('load', function() {
         $('#user').val('');
         $('#email').val('')
+        $('#retype-pass').prop('disabled', true);
       });
-      $('#retype-pass').prop('disabled', true);
+
       $('#pass').on('input', function() {
         let v = $('#pass').val();
         if (v != '') {
@@ -160,6 +161,37 @@
           $('#retype-pass').prop('disabled', true);
         }
       });
+
+      $.fn.api.settings.api = {
+        'register-user' : 'http://localhost:4000/users'
+      }
+
+      $('.button')
+        .api({
+          action: 'register-user',
+          method: 'POST',
+          dataType: 'text',
+          beforeXHR: function(xhr) {
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            return xhr;
+          },
+          beforeSend: function(settings) {
+            let name = $('#user').val()
+            let email = $('#email').val()
+            let pass = $('#pass').val()
+            let retype_pass = $('#retype-pass').val()
+
+            let data = {
+              name: $('#user').val(),
+              email: $('#email').val(),
+              password: $('#pass').val(),
+              created: Date.now(),
+              last_login: 0
+            }
+            settings.data = JSON.stringify(data)
+            return settings;
+          }
+        });
     </script>
   </body>
 </html>
