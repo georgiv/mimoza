@@ -6,141 +6,136 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css'>
   </head>
   <body>
-    <div id='main'>
-      <div id='title-holder'>
-        <img src='mimoza.png' id='logo'>
+    <div>
+      <div>
+        <img src='mimoza.png'>
       </div>
       <div>
-        <img src='background.jpg' id='left-background'>
-        <div id='inputs'>
+        <img src='background.jpg'>
+        <div>
           <div class='ui hidden divider'></div>
-          <div class='ui center aligned medium pink header' id='inner-title'><i>Create an Account</i></div>
+          <div class='ui center aligned medium pink header'><i>Create an Account</i></div>
           <div class='ui hidden divider'></div>
-          <div id='user-holder'>
-            <div class='ui transparent input' id='user-holder-inner'>
+          <div>
+            <div class='ui transparent input'>
               <input type='text' placeholder='Username' id='user'>
             </div>
             <i class='user icon'></i>
           </div>
           <div class='ui hidden divider'></div>
-          <div id='email-holder'>
-            <div class='ui transparent input' id='email-holder-inner'>
+          <div>
+            <div class='ui transparent input'>
               <input type='email' placeholder='Email' id='email'>
             </div>
             <i class='envelope icon'></i>
           </div>
           <div class='ui hidden divider'></div>
-          <div id='pass-holder'>
-            <div class='ui transparent input' id='pass-holder-inner'>
+          <div>
+            <div class='ui transparent input'>
               <input type='password' placeholder='Password' id='pass'>
             </div>
             <i class='key icon'></i>
           </div>
           <div class='ui hidden divider'></div>
-          <div id='retype-pass-holder'>
-            <div class='ui transparent input' id='retype-pass-holder-inner'>
+          <div>
+            <div class='ui transparent input'>
               <input type='password' placeholder='Retype password' id='retype-pass'>
             </div>
             <i class='key icon'></i>
           </div>
           <div class='ui hidden divider'></div>
-          <div class='ui checkbox' id='gdpr'>
-            <input type='checkbox'>
+          <div class='ui checkbox'>
+            <input type='checkbox' id='gdpr'>
             <label>By creating an account you agree to our Terms of Sercice and Privacy Policy</label>
           </div>
           <div class='ui hidden divider'></div>
           <div class='ui pink button' id='register'><i>REGISTER</i></div>
         </div>
-        <img src='background.jpg' id='right-background'>
+        <img src='background.jpg'>
       </div>
     </div>
     <style>
       * {
         font-family: Segoe UI
       }
-      #main {
+      body > div:nth-of-type(1) {
         margin: 0 auto
       }
-      #title-holder {
+      body > div:nth-of-type(1) > div:nth-of-type(1) {
         padding: 3% 40%;
         background-color: black
       }
-      #logo {
+      body > div:nth-of-type(1) > div:nth-of-type(1) > img:only-child {
         width: 100%;
         margin: 0 auto
       }
-      #left-background {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > img {
         float: left;
         width: 30%;
-        height: 500px
       }
-      #inputs {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div {
         float: left;
         width: 40%
       }
-      #right-background {
-        float: left;
-        width: 30%;
-        height: 500px
-      }
-      #inner-title {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(2) {
+        margin-top: 15%;
         font-size: 20px
       }
-      #user-holder {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(4) {
         text-align: center
       }
-      #user-holder-inner {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(4) > div {
         display: inline-block;
         width: 40%;
         border-bottom: 1px solid gainsboro
       }
-      #user {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(4) > div > input {
         width: 100%
       }
-      #email-holder {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(6) {
         text-align: center
       }
-      #email-holder-inner {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(6) > div {
         display: inline-block;
         width: 40%;
         border-bottom: 1px solid gainsboro
       }
-      #email {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > input {
         width: 100%
       }
-      #pass-holder {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(8) {
         text-align: center
       }
-      #pass-holder-inner {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(8) > div {
         display: inline-block;
         width: 40%;
         border-bottom: 1px solid gainsboro
       }
-      #pass {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(8) > div > input {
         width: 100%
       }
-      #retype-pass-holder {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(10) {
         text-align: center
       }
-      #retype-pass-holder-inner {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(10) > div {
         display: inline-block;
         width: 40%;
         border-bottom: 1px solid gainsboro
       }
-      #retype-pass {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(10) > div > input {
         width: 100%
       }
-      #gdpr {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(12) {
         width: 40%;
         display: table;
         margin: 0 auto
       }
-      #gdpr label {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(12) > label {
         color: pink;
         font-size: 10px;
         text-align: center
       }
-      #register {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(14) {
         width: 40%;
         padding: 12px;
         display: table;
