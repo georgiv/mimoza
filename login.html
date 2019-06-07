@@ -16,18 +16,24 @@
           <div class='ui hidden divider'></div>
           <img src='hanger.png'>
           <div class='ui hidden divider'></div>
-          <div>
+          <div class='input-holder'>
             <div class='ui transparent input'>
               <input type='text' placeholder='Username' id='user'>
             </div>
             <i class='user icon'></i>
           </div>
+		  <div class='err-holder'>
+            <p id='err-user'>none</p>
+          </div>
           <div class='ui hidden divider'></div>
-          <div>
+          <div class='input-holder'>
             <div class='ui transparent input'>
               <input type='password' placeholder='Password' id='pass'>
             </div>
             <i class='key icon'></i>
+          </div>
+		  <div class='err-holder'>
+            <p id='err-pass'>none</p>
           </div>
           <div class='ui hidden divider'></div>
           <div>
@@ -65,7 +71,7 @@
       body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > img {
         display: block;
         margin: 0 auto;
-        margin-top: 15%;
+        margin-top: 5%;
         padding: 1%;
         width: 15%;
         border-radius: 50%;
@@ -75,38 +81,37 @@
         box-shadow: 2px 2px 2px 2px #CBBCC3;
         transform: rotate(345deg)
       }
-      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) {
+      .input-holder {
         text-align: center
       }
-      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div {
+      .input-holder > div {
         display: inline-block;
         width: 40%;
         border-bottom: 1px solid gainsboro
       }
-      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div > input {
+      .input-holder > div > input {
         width: 100%
       }
-      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) {
+	  .err-holder {
         text-align: center
       }
-      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div {
+      .err-holder > p {
+        text-align: left;
         display: inline-block;
         width: 40%;
-        border-bottom: 1px solid gainsboro
+        color: white;
+        font-size: 13px
       }
-      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div > input {
-        width: 100%
-      }
-      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(7) {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(9) {
         margin: 0 auto;
         width: 40%;
         text-align: right
       }
-      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(7) > a {
-        color: pink;
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(9) > a {
+        color: deeppink;
         font-size: 10px
       }
-      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(9) {
+      body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(11) {
         width: 40%;
         padding: 12px;
         display: table;
@@ -121,6 +126,48 @@
       $(window).on('load', function() {
         $('#user').val('')
       });
+
+	  $.fn.api.settings.api = {
+        'get-user' : 'http://localhost:4000/users/{user}'
+      }
+
+	  $('.button')
+        .api({
+          action: 'get-user',
+          method: 'GET',
+          beforeSend: function(settings) {
+		  let ex = false
+
+			let name = $('#user').val()
+			if (name == '') {
+              $('#err-user').text('Username cannot be empty').css('color', 'deeppink')
+              $('#user').parent().css('border-bottom-color', 'deeppink')
+              ex = true
+            } else {
+              $('#err-user').text('none').css('color', 'white')
+              $('#user').parent().css('border-bottom-color', 'gainsboro')
+            }
+
+			let pass = $('#pass').val()
+			if (pass == '') {
+              $('#err-pass').text('Password cannot be empty').css('color', 'deeppink')
+              $('#pass').parent().css('border-bottom-color', 'deeppink')
+              ex = true
+            } else {
+              $('#err-pass').text('none').css('color', 'white')
+              $('#pass').parent().css('border-bottom-color', 'gainsboro')
+            }
+
+			if (ex) {
+              return false;
+            }
+
+            settings.urlData = {
+              user: name
+            };
+            return settings;
+          }
+        });
     </script>
   </body>
 </html>
