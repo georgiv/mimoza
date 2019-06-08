@@ -25,12 +25,15 @@
       body > div:nth-of-type(1) > div:nth-of-type(1) {
         position: relative;
         padding: 3% 40%;
-        background-color: black
+        background-color: black;
+        vertical-align: middle
       }
       #menu {
         position: absolute;
+        top: 50%;
         left: 3%;
-        top: 43%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
         padding: 0%;
         border: none;
         background: none
